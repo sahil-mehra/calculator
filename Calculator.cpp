@@ -1,17 +1,4 @@
-#include <iostream>
-using namespace std;
-
-void choice();
-void choice1();
-void addition();
-void subtraction();
-void multiplication();
-void division();
-void input();
-bool a = true;
-double x;
-double y;
-double z;
+#include "Calculator.h"
 
 int main() {
 	cout << "Pick one of the following:\n";
@@ -19,6 +6,8 @@ int main() {
 	cout << "2 - Subtraction\n";
 	cout << "3 - Multiplication\n";
 	cout << "4 - Division\n";
+	cout << "5 - Modulo\n";
+	cout << "6 - Index.\n";
 
 	choice();
 
@@ -46,6 +35,14 @@ void choice() {
 			cout << "You picked division.\n";
 			division();
 			break;
+		case 5:
+			cout << "You picked modulo.\n";
+			modulo();
+			break;
+		case 6:
+			cout << "You picked index.\n";
+			index();
+			break;
 		default:
 			cout << "You made an illegal choice.\n";
 			cout << "Please enter available choice.\n";
@@ -55,29 +52,35 @@ void choice() {
 void choice1(){
 	choice();
 }
-void input() {
+void getOperands() {
 	cout << "Enter number: ";
-	cin >> x;
+	cin >> operandA;
 	cout << "Enter number: ";
-	cin >> y;
+	cin >> operandB;
 }
 void addition() {
-	input();
-	z = x + y;
-	cout << x << " + " << y << " = " << z << endl;
+	getOperands();
+	cout << operandA << " + " << operandB << " = " << operandA + operandB << endl;
 }
 void subtraction() {
-	input();
-	z = x - y;
-	cout << x << " - " << y << " = " << z << endl;
+	getOperands();
+	cout << operandA << " - " << operandB << " = " << operandA - operandB << endl;
 }
 void multiplication() {
-	input();
-	z = x * y;
-	cout << x << " * " << y << " = " << z << endl;
+	getOperands();
+	cout << operandA << " * " << operandB << " = " << operandA * operandB << endl;
 }
 void division() {
-	input();
-	z = x / y;
-	cout << x << " / " << y << " = " << z << endl;
+	getOperands();
+	cout << operandA << " / " << operandB << " = " << operandA / operandB << endl;
+}
+void modulo() {
+	getOperands();
+	resultant = fmod(operandA,operandB);
+	cout << operandA << " % " << operandB << " = " << resultant << endl;
+}
+void index() {
+	getOperands();
+	resultant = pow(operandA,operandB);
+	cout << operandA << " ^ " << operandB << " = " << resultant << endl;
 }
