@@ -14,43 +14,43 @@ int main() {
 	return 0;
 }
 void choice() {
-	int choice;
-	cout << "Choice: " ;
-	cin >> choice;
+	while (true) {
+		int choice1;
+		cout << "Choice: " ;
+		cin >> choice1;
 
-	switch(choice) {
-		case 1:
-			cout << "You picked addition.\n";
-			addition();
+		switch(choice1) {
+			case 1:
+				cout << "You picked addition.\n";
+				addition();
+				break;
+			case 2:
+				cout << "You picked subtraction.\n";
+				subtraction();
+				break;
+			case 3:
+				cout << "You picked multiplication.\n";
+				multiplication();
+				break;
+			case 4:
+				cout << "You picked division.\n";
+				division();
+				break;
+			case 5:
+				cout << "You picked modulo.\n";
+				modulo();
+				break;
+			case 6:
+				cout << "You picked index.\n";
+				index();
+				break;
+			default:
+				cout << "You made an illegal choice.\n";
+				cout << "Please enter available choice.\n";
+			//	break;
+			}
 			break;
-		case 2:
-			cout << "You picked subtraction.\n";
-			subtraction();
-			break;
-		case 3:
-			cout << "You picked multiplication.\n";
-			multiplication();
-			break;
-		case 4:
-			cout << "You picked division.\n";
-			division();
-			break;
-		case 5:
-			cout << "You picked modulo.\n";
-			modulo();
-			break;
-		case 6:
-			cout << "You picked index.\n";
-			index();
-			break;
-		default:
-			cout << "You made an illegal choice.\n";
-			cout << "Please enter available choice.\n";
-			choice1();
-	}
-}
-void choice1(){
-	choice();
+		}
 }
 void getOperands() {
 	cout << "Enter number: ";
@@ -72,10 +72,20 @@ void multiplication() {
 }
 void division() {
 	getOperands();
+	do {
+		cout << "Incorrect value entered, please enter new values." << endl;
+		getOperands();
+	}
+	while ((operandB == 0) || (operandB == -0));
 	cout << operandA << " / " << operandB << " = " << operandA / operandB << endl;
 }
 void modulo() {
 	getOperands();
+	do {
+		cout << "Incorrect value entered, please enter new values." << endl;
+		getOperands();
+	}
+	while ((operandB == 0) || (operandB == -0));
 	resultant = fmod(operandA,operandB);
 	cout << operandA << " % " << operandB << " = " << resultant << endl;
 }
